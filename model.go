@@ -189,3 +189,7 @@ func (g *Game) incrementLevel() {
 		g.level++
 	}
 }
+
+func (g *Game) getAnimationLoopDelay() time.Duration {
+	return time.Duration(20+(maxLevel-g.level)*10) * time.Millisecond
+}

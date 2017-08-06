@@ -97,8 +97,7 @@ func main() {
 			render(g)
 			g.animate()
 
-			//time.Sleep(time.Duration(20+(maxLevel-level)*8) * time.Millisecond)
-			time.Sleep(time.Duration(60) * time.Millisecond)
+			time.Sleep(g.getAnimationLoopDelay())
 		}
 	}
 }
