@@ -10,6 +10,7 @@ const maxCaveWidth = 50
 const minCaveWidth = 50
 const maxLevel = 10
 const playerStartY = 10
+const shipLength = 10
 
 type GameRow struct {
 	left  int
@@ -130,6 +131,7 @@ func (g *Game) animate() {
 			g.playing = false
 		} else {
 			g.scrollMap()
+			g.depth += shipLength
 		}
 	}
 }
@@ -188,6 +190,10 @@ func (g *Game) incrementLevel() {
 	if g.level < maxLevel {
 		g.level++
 	}
+}
+
+func (g *Game) getDepth() uint {
+	return g.depth + uint(g.playerY) * shipLength
 }
 
 func (g *Game) getAnimationLoopDelay() time.Duration {

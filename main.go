@@ -6,7 +6,7 @@ import "fmt"
 
 const shipColour = termbox.ColorRed
 const spaceShip = 'Ÿ'
-const levelDurationInSeconds = time.Millisecond * 1000 * 5
+const levelDurationInSeconds = time.Millisecond * 1000 * 10
 
 func drawMap(g *Game) {
 	for y := 0; y < len(g.gameMap); y++ {
@@ -28,7 +28,7 @@ func drawMessage(g *Game, message string, colour termbox.Attribute) {
 
 func drawWidget(g *Game) {
 	tbprint(0, 0, termbox.ColorYellow, termbox.ColorDefault, fmt.Sprintf("Level: %d", g.level))
-	tbprint(0, 1, termbox.ColorYellow, termbox.ColorDefault, fmt.Sprintf("Depth: %d meters", g.depth+uint(g.playerY)))
+	tbprint(0, 1, termbox.ColorYellow, termbox.ColorDefault, fmt.Sprintf("Depth: %d meters", g.getDepth()))
 }
 
 func render(g *Game) {
